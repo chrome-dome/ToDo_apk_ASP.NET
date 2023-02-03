@@ -1,7 +1,9 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace ToDoApp.Models
 {
-	public class Issue
+	public partial class Issue
 	{
             public int Id { get; set; }
             public string Title { get; set; } = "";
