@@ -3,8 +3,8 @@ namespace ToDoApp.Models
 {
 	public class ToDoContext
 	{
-		public List<Issue> Issues { get; set; }
-		public List<Person> People { get; set; }
+		public List<Issue> Issues { get; set; } = new List<Issue>();
+		public List<Person> People { get; set; } = new List<Person>();
 
 		public static ToDoContext Data = new ToDoContext
 		{
