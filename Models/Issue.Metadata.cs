@@ -12,12 +12,27 @@ namespace ToDoApp.Models
 
                 [Required]
                 [MaxLength(200)]
+                [Display(Name = "Tytuł")]
                 public string Title { get; set; } = "";
 
-                [Required]
+                [Display(Name = "Notatka")]
                 public string Notes { get; set; } = "";
 
-                }
+                [Display(Name = "Status")]
+                public IssueState State { get; set; }
+
+                [Display(Name = "Pilne")]
+                public bool? IsUrgent { get; set; }
+
+                [Display(Name = "Ostateczny Termin")]
+                public DateTime? Deadline { get; set; }
+
+                public int? AssingedToId { get; set; }
+
+                [Display(Name = "Osoba")]
+                public Person AssignedTo { get; set; } = Person.Empty;
+
+        }
         }
 }
 
