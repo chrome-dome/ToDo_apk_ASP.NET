@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{1B5505F7-ADB9-42B1-BBC0-005F283655C3}|https" GitUserInfo="UsingGIT">
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/Issue.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Person/Index.cshtml">
     <Files>
-      <File FileName="Models/Person.cs" />
-      <File FileName="Models/Issue.cs" Line="8" Column="40" />
-      <File FileName="Models/ToDoContext.cs" />
-      <File FileName="Models/Person.Metadate.cs" />
-      <File FileName="Models/Issue.Metadata.cs" />
+      <File FileName="Views/Person/Index.cshtml" Line="21" Column="42" />
+      <File FileName="Controllers/PersonController.cs" Line="18" Column="6" />
+      <File FileName="Models/ToDoContext.cs" Line="16" Column="88" />
+      <File FileName="Models/Person.cs" Line="11" Column="3" />
+      <File FileName="Models/Person.Metadate.cs" Line="15" Column="42" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,16 +17,19 @@
               <Node name="Models" expanded="True">
                 <Node name="Issue.cs" expanded="True" />
                 <Node name="Person.cs" expanded="True" />
+                <Node name="ToDoContext.cs" selected="True" />
               </Node>
               <Node name="Properties" expanded="True" />
-              <Node name="Views" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Person" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.ToDoApp FirstBuild="True" PreferredExecutionTarget="/Applications/Brave Browser.app" />
+  <MonoDevelop.Ide.ItemProperties.ToDoApp PreferredExecutionTarget="/Applications/Brave Browser.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -10,10 +10,15 @@ namespace ToDoApp.Models
 		public class PersonMetadata
         {
 			[Required]
-			[MaxLength(100)]
+			[MaxLength(50)]
 
-			public string Name { get; set; }
-		}
+			public string Name { get; set; } = "";
+            public string Surame { get; set; } = "";
+
+            [Required]
+            [MaxLength(10)]
+            public string DisplayName { get; set; } = "";
+        }
 	}
 }
 

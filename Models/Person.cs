@@ -7,6 +7,8 @@ namespace ToDoApp.Models
 
 		public int Id { get; set; }
 		public string Name { get; set; } = "";
+		public string Surame { get; set; } = "";
+		public string DisplayName { get; set; } = "";
 		public List<Issue> Issues { get; set; }
 	}
 

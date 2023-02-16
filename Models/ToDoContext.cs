@@ -10,10 +10,10 @@ namespace ToDoApp.Models
 		{
 			People =
 			{
-				new Person() { Id = 1, Name = "Adam" },
-				new Person() { Id = 2, Name = "Dariusz" },
-				new Person() { Id = 3, Name = "Paweł" },
-				new Person() { Id = 4, Name = "Weronika" }
+				new Person() { Id = 1, Name = "Adam", Surame = "Jarząbek", DisplayName = "ajar" },
+				new Person() { Id = 2, Name = "Dariusz",Surame = "Drozd",DisplayName = "ddro" },
+				new Person() { Id = 3, Name = "Paweł",Surame = "Sabuk",DisplayName = "psab" },
+				new Person() { Id = 4, Name = "Weronika",Surame = "Łukaszewicz",DisplayName = "wluk" }
 			},
 
 			Issues =
