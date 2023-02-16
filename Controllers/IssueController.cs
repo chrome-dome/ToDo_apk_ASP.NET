@@ -15,6 +15,11 @@ namespace ToDoApp.Controllers
 
             return View(issues);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
 

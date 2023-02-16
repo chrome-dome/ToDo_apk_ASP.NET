@@ -2,10 +2,14 @@
 
 <h1>Issues</h1>
 
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(m=>m.Id)</th>
+            <th>@Html.DisplayNameFor(m => m.Id)</th>
             <th>@Html.DisplayNameFor(m => m.Title)</th>
             <th>@Html.DisplayNameFor(m => m.Notes)</th>
             <th>@Html.DisplayNameFor(m => m.State)</th>
@@ -17,8 +21,8 @@
     <tbody>
         @foreach (var item in Model)
         {
-                var date = item.Deadline?.ToShortDateString();
-                var assignedTo = item.AssignedTo?.DisplayName;
+            var date = item.Deadline?.ToShortDateString();
+            var assignedTo = item.AssignedTo?.DisplayName;
 
             <tr>
                 <td>@Html.DisplayFor(m => item.Id)</td>
