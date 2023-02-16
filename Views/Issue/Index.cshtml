@@ -20,9 +20,9 @@
     </thead>
     <tbody>
         @foreach (var item in Model)
-        {
-            var date = item.Deadline?.ToShortDateString();
-            var assignedTo = item.AssignedTo?.DisplayName;
+            {
+                var date = item.Deadline?.ToShortDateString();
+                var assignedTo = item.AssignedTo?.DisplayName == "" && item.AssignedTo != Person.Empty ? $"{ item.AssignedTo.Name} {item.AssignedTo.Surame}" : "";
 
             <tr>
                 <td>@Html.DisplayFor(m => item.Id)</td>
@@ -33,6 +33,6 @@
                 <td>@Html.DisplayFor(m => date)</td>
                 <td>@Html.DisplayFor(m => assignedTo)</td>
             </tr>
-        }
+        };
     </tbody>
 </table>

@@ -33,4 +33,5 @@
         <select asp-for="AssingedToId" asp-items="@ViewData["People"] as IEnumerable<SelectListItem>"></select>
         <span asp-validation-for="AssingedToId"></span>
     </div>
+    <button type="submit">Create new task</button>
 </form>

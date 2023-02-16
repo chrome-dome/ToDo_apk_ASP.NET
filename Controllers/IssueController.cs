@@ -17,19 +17,41 @@ namespace ToDoApp.Controllers
             return View(issues);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
-            var people = ToDoContext.Data.People.Select(p =>
-            {
-                var displayName = p.DisplayName != "" ? $"({p.DisplayName})" : "";
-
-                return new SelectListItem($"{p.Name} {p.Surame} {displayName}", p.Id.ToString());
-
-            });
-
-            ViewData["People"] = people;
-
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromForm]Issue issue)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var people = ToDoContext.Data.People.Select(p =>
+                {
+                    var displayName = p.DisplayName != "" ? $"({p.DisplayName})" : "";
+
+                    return new SelectListItem($"{p.Name} {p.Surame} {displayName}", p.Id.ToString());
+
+                });
+
+                ViewData["People"] = people;
+
+                return View(issue);
+            }
+
+            if (issue.AssingedToId != null)
+            {
+                issue.AssignedTo = ToDoContext.Data.People
+                    .FirstOrDefault(m => m.Id == issue.AssingedToId, Person.Empty);
+            }
+
+            issue.Id = ToDoContext.Data.Issues.Max(i => i.Id + 1);
+            ToDoContext.Data.Issues.Add(issue);
+
+            return RedirectToAction("Index");
         }
     }
 }

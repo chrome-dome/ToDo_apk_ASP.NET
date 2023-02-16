@@ -13,10 +13,12 @@ namespace ToDoApp.Models
 			[MaxLength(50)]
 
 			public string Name { get; set; } = "";
-            public string Surame { get; set; } = "";
 
             [Required]
-            [MaxLength(10)]
+            [MaxLength(50)]
+            public string Surame { get; set; } = "";
+
+
             public string DisplayName { get; set; } = "";
         }
 	}
