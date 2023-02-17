@@ -27,7 +27,7 @@ namespace ToDoApp.Models
                 [Display(Name = "Ostateczny Termin")]
                 public DateTime? Deadline { get; set; }
 
-                public int? AssingedToId { get; set; }
+                public int? AssignedToId { get; set; }
 
                 [Display(Name = "Osoba")]
                 public Person AssignedTo { get; set; } = Person.Empty;

@@ -29,9 +29,9 @@
         <span asp-validation-for="Deadline"></span>
     </div>
     <div class="form-group">
-        <label asp-for="AssingedToId"></label>
-        <select asp-for="AssingedToId" asp-items="@ViewData["People"] as IEnumerable<SelectListItem>"></select>
-        <span asp-validation-for="AssingedToId"></span>
+        <label asp-for="AssignedToId"></label>
+        <select asp-for="AssignedToId" asp-items="@ViewData["People"] as IEnumerable<SelectListItem>"></select>
+        <span asp-validation-for="AssignedToId"></span>
     </div>
     <button type="submit">Create new task</button>
 </form>

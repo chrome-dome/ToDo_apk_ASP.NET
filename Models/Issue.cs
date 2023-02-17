@@ -11,7 +11,7 @@ namespace ToDoApp.Models
             public IssueState State { get; set; }
             public bool IsUrgent { get; set; }
             public DateTime? Deadline { get; set; }
-            public int? AssingedToId { get; set; }
+            public int? AssignedToId { get; set; }
             public Person AssignedTo { get; set; } = Person.Empty;
     }
 }

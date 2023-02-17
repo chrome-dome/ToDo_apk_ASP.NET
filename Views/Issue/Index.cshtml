@@ -22,7 +22,7 @@
         @foreach (var item in Model)
             {
                 var date = item.Deadline?.ToShortDateString();
-                var assignedTo = item.AssignedTo?.DisplayName == "" && item.AssignedTo != Person.Empty ? $"{ item.AssignedTo.Name} {item.AssignedTo.Surame}" : "";
+                var assignedTo = item.AssignedTo?.DisplayName;
 
             <tr>
                 <td>@Html.DisplayFor(m => item.Id)</td>
