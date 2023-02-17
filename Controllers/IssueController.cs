@@ -26,6 +26,51 @@ namespace ToDoApp.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var issue = ToDoContext.Data.Issues.FirstOrDefault(i => i.Id == id);
+
+            if (issue==null)
+            {
+                return RedirectToAction("Error404", "Error");
+            }
+
+            ViewData["People"] = GetSelectLists();
+
+            return View(issue);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, [FromForm]Issue issue)
+        {
+            if (id != issue.Id)
+            {
+                return RedirectToAction("Error400", "Error");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(issue);
+            }
+
+            var updatedIssue = ToDoContext.Data.Issues.FirstOrDefault(i => i.Id == id);
+
+            if (updatedIssue == null)
+            {
+                return RedirectToAction("Error400", "Error");
+            }
+
+            updatedIssue.Title = issue.Title;
+            updatedIssue.State = issue.State;
+            updatedIssue.IsUrgent = issue.IsUrgent;
+            updatedIssue.Deadline = issue.Deadline;
+            updatedIssue.Notes = issue.Notes;
+
+            return View(issue);
+        }
+
+
         [HttpPost]
         public IActionResult Create([FromForm] Issue issue)
         {
