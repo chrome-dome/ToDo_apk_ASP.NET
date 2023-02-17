@@ -22,7 +22,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Issue}/{action=Index}/{id?}");
 
 app.MapControllerRoute(name: "blog_section",
     pattern: "blog/{*topic}",
