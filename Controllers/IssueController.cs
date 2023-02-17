@@ -21,15 +21,7 @@ namespace ToDoApp.Controllers
         public IActionResult Create()
         {
 
-            var people = ToDoContext.Data.People.Select(p =>
-            {
-                var displayName = p.DisplayName != "" ? $"({p.DisplayName})" : "";
-
-                return new SelectListItem($"{p.Name} {p.Surame} {displayName}", p.Id.ToString());
-
-            });
-
-            ViewData["People"] = people;
+            ViewData["People"] = GetSelectLists();
 
             return View();
         }
@@ -39,15 +31,7 @@ namespace ToDoApp.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var people = ToDoContext.Data.People.Select(p =>
-                {
-                    var displayName = p.DisplayName != "" ? $"({p.DisplayName})" : "";
-
-                    return new SelectListItem($"{p.Name} {p.Surame} {displayName}", p.Id.ToString());
-
-                });
-
-                ViewData["People"] = people;
+                ViewData["People"] = GetSelectLists();
 
                 return View(issue);
             }
@@ -62,6 +46,17 @@ namespace ToDoApp.Controllers
             ToDoContext.Data.Issues.Add(issue);
 
             return RedirectToAction("Index");
+        }
+
+        private IEnumerable<SelectListItem> GetSelectLists()
+        {
+            return ToDoContext.Data.People.Select(p =>
+            {
+                var displayName = p.DisplayName != "" ? $"({p.DisplayName})" : "";
+
+                return new SelectListItem($"{p.Name} {p.Surame} {displayName}", p.Id.ToString());
+
+            });
         }
     }
 }
