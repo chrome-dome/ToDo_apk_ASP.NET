@@ -20,10 +20,35 @@ namespace ToDoApp.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-
+            ViewData["Action"] = "Create";
+            ViewData["SubmitText"] = "Utwórz nowy";
             ViewData["People"] = GetSelectLists();
 
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromForm] Issue issue)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewData["Action"] = "Edit";
+                ViewData["SubmitText"] = "Zapisz zmiany";
+                ViewData["People"] = GetSelectLists();
+
+                return View(issue);
+            }
+
+            if (issue.AssignedToId != null)
+            {
+                issue.AssignedTo = ToDoContext.Data.People
+                    .FirstOrDefault(m => m.Id == issue.AssignedToId, Person.Empty);
+            }
+
+            issue.Id = ToDoContext.Data.Issues.Max(i => i.Id) + 1;
+            ToDoContext.Data.Issues.Add(issue);
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -36,6 +61,8 @@ namespace ToDoApp.Controllers
                 return RedirectToAction("Error404", "Error");
             }
 
+            ViewData["Action"] = "Edit";
+            ViewData["SubmitText"] = "Zapisz zmiany";
             ViewData["People"] = GetSelectLists();
 
             return View(issue);
@@ -68,29 +95,6 @@ namespace ToDoApp.Controllers
             updatedIssue.Notes = issue.Notes;
 
             return View(issue);
-        }
-
-
-        [HttpPost]
-        public IActionResult Create([FromForm] Issue issue)
-        {
-            if (!ModelState.IsValid)
-            {
-                ViewData["People"] = GetSelectLists();
-
-                return View(issue);
-            }
-
-            if (issue.AssignedToId != null)
-            {
-                issue.AssignedTo = ToDoContext.Data.People
-                    .FirstOrDefault(m => m.Id == issue.AssignedToId, Person.Empty);
-            }
-
-            issue.Id = ToDoContext.Data.Issues.Max(i => i.Id) + 1;
-            ToDoContext.Data.Issues.Add(issue);
-
-            return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
