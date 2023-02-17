@@ -99,6 +99,12 @@ namespace ToDoApp.Controllers
 
         public IActionResult Delete(int id)
         {
+            if (ToDoContext.Data.Issues.Any(i => i.Id == id))
+            {
+                TempData["errorMessage"] = $"Brak zadania o ID: {id}";
+                return RedirectToAction("Index");
+            }
+
             ToDoContext.Data.Issues.RemoveAll(m => m.Id == id);
 
             return RedirectToAction("Index");

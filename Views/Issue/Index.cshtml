@@ -2,6 +2,14 @@
 
 <h1>Issues</h1>
 
+@{
+    var error = TempData["errorMessage"] as string;
+    if (!string.IsNullOrEmpty(error))
+    {
+        @await Html.PartialAsync("_ErrorPartial", error)
+    }
+}
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
