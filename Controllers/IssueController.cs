@@ -93,6 +93,13 @@ namespace ToDoApp.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Delete(int id)
+        {
+            ToDoContext.Data.Issues.RemoveAll(m => m.Id == id);
+
+            return RedirectToAction("Index");
+        }
+
         private IEnumerable<SelectListItem> GetSelectLists()
         {
             return ToDoContext.Data.People.Select(p =>

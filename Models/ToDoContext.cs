@@ -59,6 +59,8 @@ namespace ToDoApp.Models
 		{
 			Data.Issues[0].AssignedTo = Data.People[0];
 			Data.Issues[1].AssignedTo = Data.People[2];
+			Data.Issues[2].AssignedTo = Data.People[1];
+			Data.Issues[3].AssignedTo = Data.People[3];
 		}
 	}
 }

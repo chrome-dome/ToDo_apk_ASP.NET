@@ -24,7 +24,7 @@ namespace ToDoApp.Models
                 [Display(Name = "Pilne")]
                 public bool? IsUrgent { get; set; }
 
-                [Display(Name = "Ostateczny Termin")]
+                [Display(Name = "Termin")]
                 public DateTime? Deadline { get; set; }
 
                 public int? AssignedToId { get; set; }
